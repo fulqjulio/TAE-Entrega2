@@ -1,0 +1,83 @@
+{% load static %}
+{% load define_select %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>TAE ENTREGA 2</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body>
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="../../../index/inicio/{{ predict }}">Reporte técnico</a></li>
+				</ul>
+				<ul>
+					<li><a href="../../../index/visualizacion/{{ predict }}">Métricas y validación</a></li>
+				</ul>
+				<ul>
+					<li><a href="../../../index/prediccion/{{ predict }}">Consulta Cumplimiento y ScoreCard</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<!--
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<div>
+					 <input name="Identificacion" type="text" disabled="disabled" id="Identificacion" value="{{ RutaTest }}" />
+								<button onclick="" type="button" id="button-addon1"><</button>
+								<button onclick="" type="button" id="button-addon1">Explorar</button>
+
+					<p></p>
+				</div>
+			</div>
+		</section> -->
+
+		<section id="two" class="wrapper style3 fade-up">
+			<div class="inner">
+				<!-- INICIO -->
+				{% if current == 'inicio' %}
+				{% include 'informe.html' %}
+				{% endif %}
+
+				<!-- VISUALIZACION -->
+				{% if current == 'visualizacion' %}
+				{% include 'metricasyvalidaciones.html' %}
+				{% endif %}
+
+				<!-- PREDICCION -->
+				{% if current == 'prediccion' %}
+				{% include 'predict.html' %}				
+				{% endif %}
+			</div>
+		</section>
+	</div>
+	<!-- Scripts -->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+	<script src="{% static 'assets/js/skel.min.js' %}"></script>
+	<script src="{% static 'assets/js/util.js' %}"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

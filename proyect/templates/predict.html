@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<body>
+    <form action="/prediction/" method="GET" name="Predecir" id="Predecir" style="height: 100%;">
+        <center>
+            <div class="field complete">
+                <label>INGRESE EL ID DEL USUARIO:</label>
+                <input name="id" type="text" id="id" required="required" style="width: 30%;" />
+            </div>
+
+            <br>
+
+            <input type="submit" name="Predecir" value="Predecir" tabindex="1" class="special">
+        </center>
+    </form>
+    {% if predict != '-' %}
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <h3>id</h3>
+                </th>
+                <th>
+                    <h3>{{ predict }}</h3>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if output == '-' %}
+            <tr>
+                <th>id de usuario no encontrado</th>
+            </tr>
+            {% else %}
+            {% for key, value in output.items %}
+            <tr>
+                <th>{{ key }}</th>
+                <th>{{ value }}</th>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    {% endif %}
+    {% if predict == '-' or output == '-' %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% endif %}
+</body>
+
+</html>
